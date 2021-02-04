@@ -11,12 +11,25 @@ public class App {
         Cat cat1 = (Cat) applicationContext.getBean("cat");
         Cat cat2 = (Cat) applicationContext.getBean("cat");
 
-        boolean beanComparion = bean1.equals(bean2);
-        boolean catComparion = cat1.equals(cat2);
+        // was
+//        boolean beanComparion = bean1.equals(bean2);
+//        boolean catComparion = cat1.equals(cat2);
+
+        // correct
+        boolean beanComparion = bean1 == bean2;
+        boolean catComparion = cat1 == cat2;
 
         System.out.println(beanComparion);
         System.out.println(catComparion);
 
         System.out.println(bean1.getMessage());
     }
+
+    /*
+    boolean beanComparion = bean1.equals(bean2); - в задании написано проверить
+    являются ли бины одними и теме же объектами, то есть проверить ссылки,
+    это делается оператором сравнения ==. Не переопределенный equals делает
+    тоже самое, но если кто-то в дальнейшем переопределит equals в классе бина,
+     то логика работы приложения изменится.
+     */
 }
